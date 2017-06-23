@@ -2,7 +2,7 @@
 npm-debug*
 
 node_modules/*
-dist/*
+# dist/*
 # test/*
 
 package-lock.json

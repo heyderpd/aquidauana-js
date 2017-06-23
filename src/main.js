@@ -2,25 +2,25 @@ import { Howl } from 'howler'
 
 (()=>{
   if (document) {
-    const guitarra = {}
+    let timeoutId
+    let howl
 
     const start = () => {
       /* https://www.npmjs.com/package/howler */
-      guitarra.sound = new Howl({ src: ['./guitarra.mp3'], html5: true })
+      howl = new Howl({ src: ['./guitarra.mp3'], html5: true })
     }
 
-    const createTimeout = () => {
-      clearTimeout(guitarra.timeout)
-      guitarra.timeout = setTimeout(() => {
-        guitarra.sound.pause()
-        clearTimeout(guitarra.timeout)
-      }, 1200)
+    const timeoutToPause = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        howl.pause()
+      }, 450)
     }
 
     const keyDown = e => {
-      if (guitarra.sound && !guitarra.sound.playing()){
-        guitarra.sound.play()
-        createTimeout()
+      if (howl) {
+        !howl.playing() && howl.play()
+        timeoutToPause()
       }
     }
 

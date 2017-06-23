@@ -5,7 +5,7 @@ import commonjs from 'rollup-plugin-commonjs'
 
 export default {
   entry: 'dist/main.js',
-  dest: 'dist/bundle.js',
+  dest: 'dist/guitarra.js',
   moduleName: 'MyModule',
   format: 'iife',
   plugins: [
