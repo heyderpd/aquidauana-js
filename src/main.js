@@ -1,13 +1,13 @@
 import { Howl } from 'howler'
 
-(()=>{
+const aquidauana = (sound = './guitarra.mp3') => {
   if (document) {
     let timeoutId
     let howl
 
     const start = () => {
       /* https://www.npmjs.com/package/howler */
-      howl = new Howl({ src: ['./guitarra.mp3'], html5: true })
+      howl = new Howl({ src: [sound], html5: true })
     }
 
     const timeoutToPause = () => {
@@ -30,4 +30,7 @@ import { Howl } from 'howler'
   } else {
     throw 'add this in document html'
   }
-})()
+}
+
+window.aquidauana = aquidauana
+aquidauana()
