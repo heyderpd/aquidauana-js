@@ -6,7 +6,7 @@ import uglify from 'rollup-plugin-uglify'
 
 export default {
   entry: 'src/main.js',
-  dest: 'dist/bundle.js',
+  dest: 'dist/aquidauana.bundle.js',
   moduleName: 'aquidauana',
   format: 'iife',
   plugins: [
