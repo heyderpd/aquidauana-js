@@ -1,13 +1,13 @@
 import { Howl } from 'howler'
 
-let aquidauana
 let timeoutId
 let howl
 
-const start = (sound) => {
+const start = (Sound, Events) => {
   /* https://www.npmjs.com/package/howler */
-  howl = new Howl({ src: [sound], html5: true })
-  document.addEventListener('keydown', keyDown, false)
+  howl = new Howl({ src: [Sound], html5: true })
+  Events.map(
+    event => document.addEventListener(event, keyDown, false))
 }
 
 const timeoutToPause = () => {
@@ -24,11 +24,11 @@ const keyDown = e => {
   }
 }
 
-(aquidauana = (sound = './guitarra.mp3') => {
+const aquidauana = (Sound = './guitarra.mp3', Events = ['keydown', 'mousemove', 'scroll', 'click']) => {
   if (!document) {
     throw 'add this in document html'
   }
-  start(sound)
-})()
+  start(Sound, Events)
+}
 
 window.aquidauana = aquidauana
